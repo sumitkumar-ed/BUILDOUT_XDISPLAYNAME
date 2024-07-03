@@ -5,10 +5,16 @@ const App = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFullName(`${firstName} ${lastName}`);
+    if (!firstName || !lastName) {
+      setError('Both fields are required');
+    } else {
+      setFullName(`${firstName} ${lastName}`);
+      setError('');
+    }
   };
 
   return (
@@ -31,8 +37,11 @@ const App = () => {
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!firstName || !lastName}>
+          Submit
+        </button>
       </form>
+      {error && <div className="error">{error}</div>}
       {fullName && <h2 className="full-name-display">Full Name: {fullName}</h2>}
     </div>
   );

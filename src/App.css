@@ -54,8 +54,18 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
 }
 
 .full-name-display {

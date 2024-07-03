@@ -1,3 +1,5 @@
+/* src/App.css */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -25,6 +27,11 @@ form {
 }
 
 .input-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-wrap: nowrap;
   margin-bottom: 10px;
   width: 100%;
 }
@@ -54,18 +61,8 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
-}
-
-button:hover:not(:disabled) {
+button:hover {
   background-color: #0056b3;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
 }
 
 .full-name-display {
